@@ -5,7 +5,7 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-public class ConnectionRequestDTO {
+public class ConnectionDTO {
 
     @XmlElement(name = "label")
     private String label;
@@ -19,10 +19,10 @@ public class ConnectionRequestDTO {
     @XmlElement(name = "target")
     private String target;
 
-    public ConnectionRequestDTO() {
+    public ConnectionDTO() {
     }
 
-    public ConnectionRequestDTO(String label, String id, String source, String target) {
+    public ConnectionDTO(String label, String id, String source, String target) {
         this.label = label;
         this.id = id;
         this.source = source;

@@ -7,7 +7,7 @@ import jakarta.xml.bind.annotation.XmlElement;
 import java.util.Objects;
 
 @XmlAccessorType(XmlAccessType.FIELD)
-public class ComponentRequestDTO {
+public class ComponentDTO {
 
     @XmlElement(name = "title")
     private String title;
@@ -33,10 +33,10 @@ public class ComponentRequestDTO {
     @XmlElement(name = "hidden")
     private boolean hidden;
 
-    public ComponentRequestDTO() {
+    public ComponentDTO() {
     }
 
-    public ComponentRequestDTO(String title, String id, int positionX, int positionY, String sourcePosition, String targetPosition, String type, boolean hidden) {
+    public ComponentDTO(String title, String id, int positionX, int positionY, String sourcePosition, String targetPosition, String type, boolean hidden) {
         this.title = title;
         this.id = id;
         this.positionX = positionX;
@@ -114,7 +114,7 @@ public class ComponentRequestDTO {
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        ComponentRequestDTO that = (ComponentRequestDTO) o;
+        ComponentDTO that = (ComponentDTO) o;
         return positionX == that.positionX && positionY == that.positionY && hidden == that.hidden && Objects.equals(title, that.title) && Objects.equals(id, that.id) && Objects.equals(sourcePosition, that.sourcePosition) && Objects.equals(targetPosition, that.targetPosition) && Objects.equals(type, that.type);
     }
 

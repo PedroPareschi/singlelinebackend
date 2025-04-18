@@ -8,44 +8,44 @@ import java.util.List;
 import java.util.Objects;
 
 @XmlRootElement
-public class DiagramRequestDTO {
+public class DiagramDTO {
 
     @XmlElementWrapper(name = "components")
     @XmlElement(name = "item")
-    private List<ComponentRequestDTO> components;
+    private List<ComponentDTO> components;
 
     @XmlElementWrapper(name = "connections")
     @XmlElement(name = "item")
-    private List<ConnectionRequestDTO> connections;
+    private List<ConnectionDTO> connections;
 
-    public DiagramRequestDTO() {
+    public DiagramDTO() {
     }
 
-    public DiagramRequestDTO(List<ComponentRequestDTO> components, List<ConnectionRequestDTO> connections) {
+    public DiagramDTO(List<ComponentDTO> components, List<ConnectionDTO> connections) {
         this.components = components;
         this.connections = connections;
     }
 
-    public List<ComponentRequestDTO> getComponents() {
+    public List<ComponentDTO> getComponents() {
         return components;
     }
 
-    public void setComponents(List<ComponentRequestDTO> components) {
+    public void setComponents(List<ComponentDTO> components) {
         this.components = components;
     }
 
-    public List<ConnectionRequestDTO> getConnections() {
+    public List<ConnectionDTO> getConnections() {
         return connections;
     }
 
-    public void setConnections(List<ConnectionRequestDTO> connections) {
+    public void setConnections(List<ConnectionDTO> connections) {
         this.connections = connections;
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
-        DiagramRequestDTO that = (DiagramRequestDTO) o;
+        DiagramDTO that = (DiagramDTO) o;
         return Objects.equals(components, that.components) && Objects.equals(connections, that.connections);
     }
 

@@ -1,7 +1,7 @@
 package com.cepel.unifilarbackend.controller;
 
-import com.cepel.unifilarbackend.dto.request.DiagramRequestDTO;
-import com.cepel.unifilarbackend.service.XMLParserService;
+import com.cepel.unifilarbackend.dto.request.DiagramDTO;
+import com.cepel.unifilarbackend.service.DiagramService;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,16 +9,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class UploadController {
+public class DiagramController {
 
-    private final XMLParserService xmlParserService;
+    private final DiagramService diagramService;
 
-    public UploadController(XMLParserService xmlParserService) {
-        this.xmlParserService = xmlParserService;
+    public DiagramController(DiagramService diagramService) {
+        this.diagramService = diagramService;
     }
 
     @PostMapping(path = "/upload", consumes = MediaType.APPLICATION_XML_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<DiagramRequestDTO> upload(@RequestBody DiagramRequestDTO request){
+    public ResponseEntity<DiagramDTO> upload(@RequestBody DiagramDTO request){
         return ResponseEntity.ok(request);
     }
 }
