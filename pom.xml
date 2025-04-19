@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.cepel</groupId>
-	<artifactId>unifilarbackend</artifactId>
+	<artifactId>singlelinebackend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>unifilarbackend</name>
 	<description>Unifilar Diagram project back end</description>
