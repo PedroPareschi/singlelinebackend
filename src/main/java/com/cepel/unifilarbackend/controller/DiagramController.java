@@ -1,6 +1,6 @@
 package com.cepel.unifilarbackend.controller;
 
-import com.cepel.unifilarbackend.dto.request.DiagramDTO;
+import com.cepel.unifilarbackend.dto.DiagramDTO;
 import com.cepel.unifilarbackend.service.DiagramService;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +19,7 @@ public class DiagramController {
 
     @PostMapping(path = "/upload", consumes = MediaType.APPLICATION_XML_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<DiagramDTO> upload(@RequestBody DiagramDTO request){
-        return ResponseEntity.ok(request);
+        DiagramDTO response = diagramService.filterHiddenItems(request);
+        return ResponseEntity.ok(response);
     }
 }

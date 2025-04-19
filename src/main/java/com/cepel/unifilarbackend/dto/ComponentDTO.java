@@ -1,5 +1,6 @@
-package com.cepel.unifilarbackend.dto.request;
+package com.cepel.unifilarbackend.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
@@ -7,6 +8,7 @@ import jakarta.xml.bind.annotation.XmlElement;
 import java.util.Objects;
 
 @XmlAccessorType(XmlAccessType.FIELD)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ComponentDTO {
 
     @XmlElement(name = "title")
@@ -16,10 +18,10 @@ public class ComponentDTO {
     private String id;
 
     @XmlElement(name = "x")
-    private int positionX;
+    private Integer positionX;
 
     @XmlElement(name = "y")
-    private int positionY;
+    private Integer positionY;
 
     @XmlElement(name = "sourcePosition")
     private String sourcePosition;
@@ -31,12 +33,12 @@ public class ComponentDTO {
     private String type;
 
     @XmlElement(name = "hidden")
-    private boolean hidden;
+    private Boolean hidden;
 
     public ComponentDTO() {
     }
 
-    public ComponentDTO(String title, String id, int positionX, int positionY, String sourcePosition, String targetPosition, String type, boolean hidden) {
+    public ComponentDTO(String title, String id, Integer positionX, Integer positionY, String sourcePosition, String targetPosition, String type, Boolean hidden) {
         this.title = title;
         this.id = id;
         this.positionX = positionX;
@@ -63,19 +65,19 @@ public class ComponentDTO {
         this.id = id;
     }
 
-    public int getPositionX() {
+    public Integer getPositionX() {
         return positionX;
     }
 
-    public void setPositionX(int positionX) {
+    public void setPositionX(Integer positionX) {
         this.positionX = positionX;
     }
 
-    public int getPositionY() {
+    public Integer getPositionY() {
         return positionY;
     }
 
-    public void setPositionY(int positionY) {
+    public void setPositionY(Integer positionY) {
         this.positionY = positionY;
     }
 
@@ -103,11 +105,11 @@ public class ComponentDTO {
         this.type = type;
     }
 
-    public boolean isHidden() {
+    public Boolean isHidden() {
         return hidden;
     }
 
-    public void setHidden(boolean hidden) {
+    public void setHidden(Boolean hidden) {
         this.hidden = hidden;
     }
 

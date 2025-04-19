@@ -1,4 +1,4 @@
-package com.cepel.unifilarbackend.dto.request;
+package com.cepel.unifilarbackend.dto;
 
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlElementWrapper;

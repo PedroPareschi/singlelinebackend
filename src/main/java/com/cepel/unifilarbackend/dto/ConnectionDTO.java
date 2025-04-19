@@ -1,10 +1,12 @@
-package com.cepel.unifilarbackend.dto.request;
+package com.cepel.unifilarbackend.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlElement;
 
 @XmlAccessorType(XmlAccessType.FIELD)
+@JsonInclude(JsonInclude.Include.NON_NULL)
 public class ConnectionDTO {
 
     @XmlElement(name = "label")
