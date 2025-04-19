@@ -1,34 +1,33 @@
-package com.cepel.unifilarbackend.dto;
+package com.cepel.unifilarbackend.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
-import jakarta.xml.bind.annotation.XmlElement;
+
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class ConnectionDTO {
+public class Connection {
 
-    @XmlElement(name = "label")
+    @JsonIgnore
+    private DataWrapper data;
     private String label;
-
-    @XmlElement(name = "id")
     private String id;
-
-    @XmlElement(name = "source")
     private String source;
-
-    @XmlElement(name = "target")
     private String target;
 
-    public ConnectionDTO() {
+    public static class DataWrapper {
+        public String label;
     }
 
-    public ConnectionDTO(String label, String id, String source, String target) {
-        this.label = label;
-        this.id = id;
-        this.source = source;
-        this.target = target;
+    @JacksonXmlProperty(localName = "data")
+    public void setData(DataWrapper data) {
+        this.data = data;
+        if (data != null) {
+            this.label = data.label;
+        }
     }
 
     public String getLabel() {
