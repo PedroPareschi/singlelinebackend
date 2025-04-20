@@ -1,54 +1,71 @@
-package com.cepel.unifilarbackend.entity;
+package com.cepel.unifilarbackend.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import jakarta.xml.bind.annotation.XmlAccessType;
 import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlType;
 
 @XmlAccessorType(XmlAccessType.FIELD)
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class Component {
+public class ComponentDTO {
 
-    @JsonIgnore
-    private DataWrapper data;
-    private String title;
-    private Integer kv;
     private String id;
+    private Data data;
     private Position position;
     private String sourcePosition;
     private String targetPosition;
     private String type;
     private Boolean hidden;
 
-    public static class DataWrapper {
-        public Integer kv;
-        public String title;
-    }
+    @XmlType(name = "componentData")
+    public static class Data {
+        private Integer kv;
+        private String title;
 
-    @JacksonXmlProperty(localName = "data")
-    public void setData(DataWrapper data) {
-        this.data = data;
-        if (data != null) {
-            this.kv = data.kv;
-            this.title = data.title;
+        public Integer getKv() {
+            return kv;
+        }
+
+        public void setKv(Integer kv) {
+            this.kv = kv;
+        }
+
+        public String getTitle() {
+            return title;
+        }
+
+        public void setTitle(String title) {
+            this.title = title;
         }
     }
 
-    public String getTitle() {
-        return title;
+    public static class Position {
+        private Integer x;
+        private Integer y;
+
+        public Integer getX() {
+            return x;
+        }
+
+        public void setX(Integer x) {
+            this.x = x;
+        }
+
+        public Integer getY() {
+            return y;
+        }
+
+        public void setY(Integer y) {
+            this.y = y;
+        }
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public Data getData() {
+        return data;
     }
 
-    public Integer getKv() {
-        return kv;
-    }
-
-    public void setKv(Integer kv) {
-        this.kv = kv;
+    public void setData(Data data) {
+        this.data = data;
     }
 
     public String getId() {
